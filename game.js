@@ -1,3 +1,6 @@
+let computer = 0;
+let player = 0;
+
 function getComputerChoice(){
     let Rock = Math.round(Math.random());
     let Scissors = Math.round(Math.random());
@@ -15,13 +18,37 @@ function GameRound(playerSelection ,ComputerChoice ){
         return `it,s a tie! ${ComputerChoice} can not beat itself`;
     }
     if((ComputerChoice.toUpperCase() == "PAPER" && playerSelection.toUpperCase()=="ROCK") || (ComputerChoice.toUpperCase() == "SCISSORS" && playerSelection.toUpperCase()=="PAPER")||(ComputerChoice.toUpperCase() == "ROCK" && playerSelection.toUpperCase()=="SCISSORS")){
+        computer += 1;
         return `You lose! ${ComputerChoice} beats ${playerSelection}`;
+        
     }
     if((ComputerChoice.toUpperCase() == "ROCK" && playerSelection.toUpperCase()=="PAPER") || (ComputerChoice.toUpperCase() == "PAPER" && playerSelection.toUpperCase()=="SCISSORS")||(ComputerChoice.toUpperCase() == "SCISSORS" && playerSelection.toUpperCase()=="ROCK")){
+        player += 1;
         return `You WIN! ${playerSelection} beats ${ComputerChoice}`;
+         
     }
     
 }
-const playerSelection = "rock";
-const ComputerChoice = getComputerChoice();
-console.log(GameRound(playerSelection, ComputerChoice ))
+
+function playGame(){
+    for( let i = 0; i < 5 ; i++){
+        const playerSelection = prompt("Enter your choice: ");
+        const ComputerChoice = getComputerChoice();
+        console.log(GameRound(playerSelection, ComputerChoice ))
+    }
+    if(computer > player){
+        return `You lose! 
+        computer:${computer}
+        You:${player} `
+    }
+    else if(computer < player) {
+        return `You Win! 
+        computer:${computer}
+        You:${player} `
+    }else{
+        return `it's a tie! 
+        computer:${computer}
+        You:${player} `
+    }
+}
+console.log(playGame());
