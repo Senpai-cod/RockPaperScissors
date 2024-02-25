@@ -1,30 +1,27 @@
 function getComputerChoice(){
     let Rock = Math.round(Math.random());
+    let Scissors = Math.round(Math.random());
     if(Rock){
         return "Rock";
     }
-    let Paper = Math.round(Math.random());
-    if(Paper){
-        return "Paper";
-    }
-    let Scissors = Math.round(Math.random());
-    if(Scissors){
+    else if(Scissors){
         return "Scissors";
     }
     else return "Paper";
 }
-console.log(getComputerChoice());
 
-function GameRound(function1 ,function2 ){
-    if(getComputerChoice().toUpperCase() == playerSelection().toUpperCase()){
-        return `it,s a tie! ${getComputerChoice()} can not beat itself`
+function GameRound(playerSelection ,ComputerChoice ){
+    if(ComputerChoice.toUpperCase() == playerSelection.toUpperCase()){
+        return `it,s a tie! ${ComputerChoice} can not beat itself`;
     }
-    if((getComputerChoice().toUpperCase() == "PAPER" && playerSelection().toUpperCase()=="ROCK") || (getComputerChoice().toUpperCase() == "SCISSORS" && playerSelection().toUpperCase()=="PAPER")){
-        return `You lose! ${getComputerChoice()} beats ${playerSelection()}`
+    if((ComputerChoice.toUpperCase() == "PAPER" && playerSelection.toUpperCase()=="ROCK") || (ComputerChoice.toUpperCase() == "SCISSORS" && playerSelection.toUpperCase()=="PAPER")||(ComputerChoice.toUpperCase() == "ROCK" && playerSelection.toUpperCase()=="SCISSORS")){
+        return `You lose! ${ComputerChoice} beats ${playerSelection}`;
     }
-    if((getComputerChoice().toUpperCase() == "ROCK" && playerSelection().toUpperCase()=="PAPER") || (getComputerChoice().toUpperCase() == "PAPER" && playerSelection().toUpperCase()=="SCISSORS")){
-        return `You WIN! ${playerSelection()} beats ${getComputerChoice()}`
+    if((ComputerChoice.toUpperCase() == "ROCK" && playerSelection.toUpperCase()=="PAPER") || (ComputerChoice.toUpperCase() == "PAPER" && playerSelection.toUpperCase()=="SCISSORS")||(ComputerChoice.toUpperCase() == "SCISSORS" && playerSelection.toUpperCase()=="ROCK")){
+        return `You WIN! ${playerSelection} beats ${ComputerChoice}`;
     }
     
 }
-
+const playerSelection = "rock";
+const ComputerChoice = getComputerChoice();
+console.log(GameRound(playerSelection, ComputerChoice ))
