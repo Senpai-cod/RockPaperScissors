@@ -30,7 +30,7 @@ function GameRound(playerSelection ,ComputerChoice ){
     
 }
 
-function playGame(){
+/*function playGame(){
     for( let i = 0; i < 5 ; i++){
         const playerSelection = prompt("Enter your choice: ");
         const ComputerChoice = getComputerChoice();
@@ -51,4 +51,37 @@ function playGame(){
         You:${player} `
     }
 }
-console.log(playGame());
+console.log(playGame());*/
+do{
+const btns = document.querySelectorAll("button");
+btns.forEach((btn) =>{
+    btn.addEventListener("click", () =>{
+
+        const playerSelection = btn.textContent;
+        const ComputerChoice = getComputerChoice();
+
+        const body = document.querySelector("body");
+
+const div = document.createElement("div");
+div.textContent = `${GameRound(playerSelection,ComputerChoice)}
+                    Your Score: ${player}
+                    The Computer's Score: ${computer}`;
+
+body.appendChild(div);
+        
+    })
+})
+}while(player < 5 || computer < 5);
+if(player == 5){
+    const win = document.CreateElement("div");
+    win.textContent = "Congratulations You WIN!";
+    const body = document.querySelector("body");
+    body.appendChild(win);
+}
+else {
+    const lose = documentCreateElement("div");
+lose.textContent = "The Computer WINS! and you LOSE!";
+    const body = document.querySelector("body");
+    body.appendChild(lose);
+
+}

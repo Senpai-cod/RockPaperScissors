@@ -1,0 +1,3 @@
+function that returns randomly rock or paper or scissor
+choices need to be sometimes false so use round of rand for the value of a var then return in if statements
+
