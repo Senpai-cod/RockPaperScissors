@@ -29,29 +29,6 @@ function GameRound(playerSelection ,ComputerChoice ){
     }
     
 }
-
-/*function playGame(){
-    for( let i = 0; i < 5 ; i++){
-        const playerSelection = prompt("Enter your choice: ");
-        const ComputerChoice = getComputerChoice();
-        console.log(GameRound(playerSelection, ComputerChoice ))
-    }
-    if(computer > player){
-        return `You lose! 
-        computer:${computer}
-        You:${player} `
-    }
-    else if(computer < player) {
-        return `You Win! 
-        computer:${computer}
-        You:${player} `
-    }else{
-        return `it's a tie! 
-        computer:${computer}
-        You:${player} `
-    }
-}
-console.log(playGame());*/
 do{
 const btns = document.querySelectorAll("button");
 btns.forEach((btn) =>{
